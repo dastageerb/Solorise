@@ -1,0 +1,63 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return signedIn() && request.auth.token.admin == true;
+    }
+
+    function isProvisionedUser() {
+      return signedIn() && exists(/databases/$(database)/documents/users/$(request.auth.uid));
+    }
+
+    function project(projectId) {
+      return get(/databases/$(database)/documents/projects/$(projectId));
+    }
+
+    function canAccessProject(projectId) {
+      return isAdmin() || (signedIn() && request.auth.uid in project(projectId).data.accessIds);
+    }
+
+    function canEditProject(projectId) {
+      return isAdmin() || (signedIn() && request.auth.uid in project(projectId).data.editorIds);
+    }
+
+    function isProjectClient(projectId) {
+      return signedIn() && request.auth.uid in project(projectId).data.clientIds;
+    }
+
+    match /users/{userId} {
+      allow create: if isAdmin();
+      // Only identities with an admin-provisioned workspace profile may read the directory.
+      allow read: if isAdmin() || isProvisionedUser();
+      allow update: if isAdmin() || (signedIn() && request.auth.uid == userId && request.resource.data.role == resource.data.role);
+      allow delete: if isAdmin();
+    }
+
+    match /projects/{projectId} {
+      allow create: if isAdmin();
+      allow read: if isAdmin() || (signedIn() && request.auth.uid in resource.data.accessIds);
+      allow update, delete: if isAdmin() || (signedIn() && request.auth.uid == resource.data.ownerId);
+
+      match /tickets/{ticketId} {
+        allow read: if canAccessProject(projectId) && (!isProjectClient(projectId) || resource.data.clientVisible == true);
+        allow create, update, delete: if canEditProject(projectId);
+
+        match /comments/{commentId} {
+          allow read: if canAccessProject(projectId);
+          allow create: if canAccessProject(projectId);
+          allow update, delete: if isAdmin() || (signedIn() && request.auth.uid == resource.data.authorId);
+        }
+      }
+    }
+
+    // Secrets are available only to the server through the Admin SDK.
+    match /systemSecrets/{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

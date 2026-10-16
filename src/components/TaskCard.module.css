@@ -1,0 +1,48 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid #dadad3;
+  border-radius: 11px;
+  background: #fff;
+  box-shadow: 0 1px 1px rgba(18, 19, 15, .03);
+  cursor: pointer;
+  user-select: none;
+  transition: border-color .14s ease, transform .14s ease, box-shadow .14s ease;
+}
+.card:hover { border-color: #bdbeb6; box-shadow: 0 5px 14px rgba(18, 19, 15, .07); transform: translateY(-1px); }
+.card:active { cursor: grabbing; }
+.card:focus-visible { outline: 2px solid #3d43ff; outline-offset: 1px; }
+
+.keyRow { display: flex; align-items: center; gap: 7px; min-height: 20px; }
+.typeIcon { display: grid; place-items: center; width: 21px; height: 21px; border-radius: 6px; background: #dff3e6; color: #167349; font-size: 11px; }
+.typeIcon[data-kind='bug'] { background: #ffe0d5; color: #c24422; }
+.typeIcon[data-kind='change'] { background: #fff0c8; color: #8b5d00; }
+.key { color: #73746d; font: 10px ui-monospace, SFMono-Regular, Consolas, monospace; }
+.via { padding: 3px 5px; border-radius: 4px; background: #ece9ff; color: #4a3ab8; font: 8px ui-monospace, SFMono-Regular, Consolas, monospace; }
+.move { margin-left: auto; color: #b5b6ae; font-size: 16px; line-height: 1; cursor: pointer; }
+.move:hover:not(:disabled) { color: #3d43ff; }
+.move:disabled { cursor: default; }
+.menu { display: none; position: absolute; top: 7px; right: 7px; height: 24px; padding: 0 5px; border-radius: 5px; background: #f2f2ed; color: #60615a; cursor: pointer; }
+.card:hover .menu, .card[data-open='true'] .menu { display: block; }
+.card:hover .move, .card[data-open='true'] .move { visibility: hidden; }
+
+.title { color: #141510; font-size: 13px; font-weight: 700; line-height: 1.32; text-align: left; transition: color .12s ease; }
+.card:hover .title { color: #3036d9; }
+
+.footer { display: flex; align-items: center; gap: 7px; min-height: 22px; color: #6f7069; }
+.department { max-width: 82px; overflow: hidden; padding: 3px 7px; border: 1px solid #d7d7cf; border-radius: 999px; color: #4d4e48; font-size: 9px; line-height: 1; text-overflow: ellipsis; white-space: nowrap; }
+.priority { color: #6e6f68; font-size: 6px; letter-spacing: 1px; }
+.meta { display: inline-flex; align-items: center; gap: 3px; font-size: 9px; white-space: nowrap; }
+.meta[data-overdue='true'] { color: #1e1f1a; font-weight: 700; }
+.assignee { display: grid; place-items: center; width: 23px; height: 23px; margin-left: auto; border-radius: 50%; background: #dcdcff; color: #4942b6; font-size: 8px; font-weight: 700; }
+.assignee[data-initials='TB'] { background: #ccefd9; color: #17663e; }
+.assignee[data-initials='IK'] { background: #ffe8b7; color: #88580d; }
+.assignee[data-initials='YO'] { background: #161713; color: #fff; }
+.assignee[data-initials='?'] { background: #efefe9; color: #85867e; }
+
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none; }
+}

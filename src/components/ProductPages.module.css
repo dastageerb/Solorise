@@ -1,0 +1,17 @@
+.page { min-height: 100vh; background: #f7f7f3; color: #151612; }
+.header { display: flex; align-items: center; gap: 38px; min-height: 70px; padding: 0 5vw; border-bottom: 1px solid #dcdcd4; background: rgba(247,247,243,.92); }
+.header nav { display: flex; align-self: stretch; gap: 24px; }
+.header nav a { display: flex; align-items: center; border-bottom: 2px solid transparent; color: #65665f; font-size: 13px; }
+.header nav a[data-active='true'] { border-color: #3d43ff; color: #151612; font-weight: 700; }
+.header > button { display: grid; margin-left: auto; text-align: right; color: #77786f; font-size: 10px; }
+.header > button span { color: #151612; font-size: 12px; font-weight: 700; }
+.hero { padding: 70px 7vw 55px; border-bottom: 1px solid #deded6; background-color: #fbfbf8; background-image: radial-gradient(#d8d8d0 1px, transparent 1px); background-size: 24px 24px; }
+.hero > span { color: #3d43ff; font: 10px ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .08em; text-transform: uppercase; }
+.hero h1 { margin-top: 12px; font-size: clamp(46px, 6vw, 78px); line-height: .95; letter-spacing: -.06em; }
+.hero p { max-width: 640px; margin-top: 20px; color: #5e6057; font-size: 17px; line-height: 1.55; }
+.content { max-width: 1160px; margin: 0 auto; padding: 45px 24px 80px; }
+.loading { min-height: 100vh; display: grid; place-items: center; background: #f7f7f3; }
+.loading section { text-align: center; }
+.loading section h1 { font-size: 32px; }
+.loading section a { display: inline-block; margin-top: 15px; color: #3d43ff; font-weight: 700; }
+@media (max-width: 650px) { .header { gap: 15px; padding-inline: 18px; } .header nav { gap: 13px; } .header > button span { display: none; } .hero { padding: 48px 24px 40px; } }

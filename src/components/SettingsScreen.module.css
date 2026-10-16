@@ -1,0 +1,42 @@
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
+.card { padding: 27px; border: 1px solid #dcdcd4; border-radius: 14px; background: #fff; }
+.wide { grid-column: 1 / -1; }
+.cardHead { display: flex; align-items: center; justify-content: space-between; }
+.cardHead span { color: #3d43ff; font: 10px ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .08em; text-transform: uppercase; }
+.cardHead strong { padding: 5px 8px; border-radius: 999px; background: #f0f0eb; color: #6c6d65; font-size: 9px; }
+.cardHead strong[data-ready='true'], .cardHead strong[data-ready] { background: #def3e6; color: #146d43; }
+.cardHead strong[data-ready='false'] { background: #fff0cb; color: #835700; }
+.card h2 { margin-top: 16px; font-size: 24px; letter-spacing: -.035em; }
+.card > p { margin-top: 9px; color: #66675f; line-height: 1.55; }
+.card dl { display: grid; gap: 8px; margin-top: 20px; }
+.card dl div { display: flex; justify-content: space-between; gap: 20px; padding: 9px 0; border-bottom: 1px solid #ecece6; }
+.card dt { color: #77786f; font-size: 11px; }
+.card dd { font-size: 11px; font-weight: 700; }
+.card form { display: grid; gap: 12px; margin-top: 20px; padding-top: 18px; border-top: 1px solid #e4e4dd; }
+.card form label { display: grid; gap: 7px; color: #55564f; font-size: 11px; font-weight: 700; }
+.card form input, .card form select { height: 42px; padding: 0 11px; border: 1px solid #d7d7cf; border-radius: 8px; background: #fbfbf8; font: inherit; }
+.card form div { display: flex; gap: 8px; }
+.card form button { padding: 10px 13px; border: 1px solid #d7d7cf; border-radius: 999px; font-size: 11px; font-weight: 700; }
+.card form button:first-child { border-color: #3d43ff; background: #3d43ff; color: #fff; }
+.readonly { padding: 10px; border-radius: 7px; background: #f2f2ed; font-size: 11px; }
+.card ul { display: grid; gap: 10px; margin-top: 18px; color: #55564f; }
+.card code { padding: 2px 5px; border-radius: 4px; background: #f0f0eb; }
+.error, .notice { position: fixed; right: 24px; bottom: 24px; z-index: 20; padding: 12px 16px; border-radius: 9px; box-shadow: 0 12px 40px rgba(20,21,16,.15); }
+.error { background: #fff0ed; color: #a63724; }
+.notice { background: #def3e6; color: #146d43; }
+
+.inputWithAction { display: flex; gap: 8px; align-items: stretch; width: 100%; }
+.inputWithAction input { flex: 1; min-width: 0; }
+.detectButton { height: 42px; padding: 0 14px; border: 1px solid #3d43ff; border-radius: 8px; background: #eef2ff; color: #3d43ff; font-size: 11px; font-weight: 700; cursor: pointer; white-space: nowrap; }
+.detectButton:hover:not(:disabled) { background: #e0e7ff; }
+.detectButton:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.modelDetectStatus { padding: 8px 12px; border-radius: 7px; font-size: 11px; line-height: 1.4; }
+.modelDetectStatus[data-state='success'] { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+.modelDetectStatus[data-state='warning'] { background: #fffbeb; color: #92400e; border: 1px solid #fde68a; }
+
+.modelHeader { display: flex; align-items: center; justify-content: space-between; }
+.modelToggleBtn { border: 0; background: transparent; color: #3d43ff; font-size: 10px; font-weight: 600; cursor: pointer; text-decoration: underline; padding: 0; }
+
+@media (max-width: 760px) { .grid { grid-template-columns: 1fr; } .wide { grid-column: auto; } }
+

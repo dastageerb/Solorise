@@ -1,0 +1,6 @@
+.logo { display: inline-flex; align-items: center; gap: 10px; color: #151612; }
+.logo b { font-size: 20px; letter-spacing: -.04em; }
+.mark { display: flex; align-items: center; justify-content: center; gap: 3px; width: 29px; height: 29px; border-radius: 8px; background: #151612; }
+.mark i { display: block; width: 5px; height: 13px; border-radius: 2px; background: #fff; }
+.mark i:last-child { height: 8px; background: #4b50ff; }
+.logo[data-compact='true'] .mark { width: 25px; height: 25px; border-radius: 7px; }

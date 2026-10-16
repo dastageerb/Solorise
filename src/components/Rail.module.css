@@ -1,0 +1,173 @@
+.rail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  width: var(--rail-w);
+  padding: var(--sp-4);
+  border-right: 1px solid var(--border);
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+/* ------------------------------------------------------------------- brand */
+
+.brand { display: flex; align-items: center; gap: var(--sp-2); padding: var(--sp-1) var(--sp-2); }
+.brandMark { display: inline-flex; gap: 2px; align-items: flex-end; height: 16px; }
+.brandMark > span {
+  width: 4px;
+  border-radius: var(--r-full);
+  background: var(--accent);
+}
+.brandMark > span:nth-child(1) { height: 8px; opacity: 0.55; }
+.brandMark > span:nth-child(2) { height: 13px; opacity: 0.8; }
+.brandMark > span:nth-child(3) { height: 16px; }
+.brandName {
+  font-size: var(--fs-16);
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.01em;
+}
+
+/* ---------------------------------------------------------------- switcher */
+
+.switcher {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-2) var(--sp-3);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  transition: border-color var(--dur) var(--ease);
+}
+.switcher:hover { border-color: var(--border-strong); }
+.switcherAvatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--r-md);
+  background: var(--accent-weak);
+  color: var(--accent);
+  font-size: var(--fs-13);
+  font-weight: var(--fw-semibold);
+  flex: 0 0 auto;
+}
+.switcherText { display: flex; flex-direction: column; min-width: 0; }
+.switcherTitle { font-size: var(--fs-13); font-weight: var(--fw-medium); }
+.switcherSub { font-size: var(--fs-11); color: var(--text-faint); }
+.switcherChevron { margin-left: auto; color: var(--text-faint); display: inline-flex; }
+
+/* ------------------------------------------------------------------- groups */
+
+.groupLabel {
+  display: flex;
+  align-items: center;
+  padding: 0 var(--sp-2);
+  font-size: var(--fs-11);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.groupCount { margin-left: auto; font-variant-numeric: tabular-nums; }
+
+.nav { display: flex; flex-direction: column; gap: 2px; }
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  height: 34px;
+  padding: 0 var(--sp-2);
+  border-radius: var(--r-md);
+  color: var(--text-muted);
+  font-size: var(--fs-13);
+  font-weight: var(--fw-medium);
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.navItem:hover { background: var(--surface-2); }
+.navItem[aria-current='page'] { background: var(--accent-weak); color: var(--accent); }
+.navMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--r-sm);
+  background: var(--surface-3);
+  color: var(--text-muted);
+  font-size: var(--fs-11);
+  font-weight: var(--fw-semibold);
+  flex: 0 0 auto;
+}
+.navItem[aria-current='page'] .navMark { background: var(--accent); color: #FFFFFF; }
+.navLabel { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.navDot { margin-left: auto; width: 6px; height: 6px; border-radius: var(--r-full); background: var(--accent); }
+
+/* --------------------------------------------------------------------- team */
+
+.team { display: flex; flex-direction: column; gap: 2px; }
+.teamItem {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  height: 32px;
+  padding: 0 var(--sp-2);
+  border-radius: var(--r-md);
+  transition: background-color var(--dur) var(--ease);
+}
+.teamItem:hover { background: var(--surface-2); }
+.teamName {
+  font-size: var(--fs-13);
+  color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------------------------- footer */
+
+.foot {
+  margin-top: auto;
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.footItem {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  height: 32px;
+  padding: 0 var(--sp-2);
+  border-radius: var(--r-md);
+  color: var(--text-muted);
+  font-size: var(--fs-13);
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.footItem:hover { background: var(--surface-2); color: var(--text); }
+.footItem .kbd { margin-left: auto; }
+
+.savedNote {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-2) var(--sp-2) 0;
+  font-size: var(--fs-11);
+  color: var(--text-faint);
+}
+.savedDot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--r-full);
+  background: var(--status-done);
+  flex: 0 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .rail { display: none; }
+}

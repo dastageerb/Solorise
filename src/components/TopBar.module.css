@@ -1,0 +1,47 @@
+.head {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  height: var(--header-h);
+  padding: 0 var(--sp-8);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.crumbChevron { display: inline-flex; color: var(--text-faint); }
+
+/* "All changes saved locally" — a quiet fact, not a success banner. */
+.saved {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-left: auto;
+  font-size: var(--fs-12);
+  color: var(--text-muted);
+}
+.savedDot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--r-full);
+  background: var(--status-done);
+  flex: 0 0 auto;
+}
+
+.search { width: 300px; flex: 0 0 auto; }
+
+.presence { display: flex; align-items: center; gap: var(--sp-2); flex: 0 0 auto; }
+.more { border-color: var(--bg); }
+
+@media (max-width: 1200px) {
+  .saved { display: none; }
+  .search { margin-left: auto; }
+}
+
+@media (max-width: 900px) {
+  .head { padding: 0 var(--sp-4); gap: var(--sp-2); }
+  .search { width: 180px; }
+  .presence { display: none; }
+}

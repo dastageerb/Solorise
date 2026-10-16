@@ -1,0 +1,24 @@
+.page { min-height: 100vh; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(420px, .85fr); background-color: #f7f7f3; background-image: radial-gradient(#d5d5cd 1px, transparent 1px); background-size: 24px 24px; }
+.home { position: fixed; top: 28px; left: 36px; z-index: 2; }
+.copy { align-self: center; max-width: 720px; padding: 100px 7vw; }
+.copy > span, .kicker { color: #3d43ff; font: 11px ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .08em; text-transform: uppercase; }
+.copy h1 { max-width: 760px; margin-top: 16px; font-size: clamp(50px, 6vw, 88px); line-height: .94; letter-spacing: -.065em; }
+.copy p { max-width: 590px; margin-top: 26px; color: #595b52; font-size: 18px; line-height: 1.55; }
+.panel { align-self: center; width: min(500px, calc(100% - 48px)); margin: 24px; padding: 42px; border: 1px solid #dadad2; border-radius: 20px; background: rgba(255,255,255,.95); box-shadow: 0 24px 70px rgba(20,21,16,.1); }
+.panel h2 { margin-top: 8px; font-size: 30px; letter-spacing: -.04em; }
+.panel form { display: grid; gap: 17px; margin-top: 30px; }
+.panel label { display: grid; gap: 7px; color: #484942; font-size: 12px; font-weight: 700; }
+.panel input { height: 45px; padding: 0 13px; border: 1px solid #d7d7cf; border-radius: 9px; background: #fbfbf8; outline: 0; font: inherit; font-size: 14px; }
+.panel input:focus { border-color: #3d43ff; box-shadow: 0 0 0 3px #ececff; }
+.submit { height: 45px; margin-top: 5px; border-radius: 999px; background: #3d43ff; color: #fff; font-weight: 700; }
+.submit:hover { background: #3036e5; }
+.submit:disabled { opacity: .6; }
+.error, .notice { padding: 10px 12px; border-radius: 7px; font-size: 12px; }
+.error { background: #fff0ed; color: #a63724; }
+.notice { background: #e8f6ed; color: #17663e; }
+.reset { margin-top: 14px; color: #62635b; font-size: 12px; }
+.reset:hover { color: #151612; }
+.switch { margin-top: 28px; padding-top: 22px; border-top: 1px solid #e3e3dc; color: #686961; font-size: 13px; }
+.switch a { color: #3036d9; font-weight: 700; }
+@media (max-width: 900px) { .page { grid-template-columns: 1fr; padding: 90px 0 30px; } .copy { padding: 30px 24px; } .copy h1 { font-size: clamp(42px, 11vw, 70px); } .panel { justify-self: center; margin-top: 0; } }
+@media (max-width: 520px) { .home { left: 20px; top: 20px; } .copy { padding-top: 10px; } .copy p { font-size: 16px; } .panel { width: calc(100% - 24px); margin-inline: 12px; padding: 28px 22px; } }

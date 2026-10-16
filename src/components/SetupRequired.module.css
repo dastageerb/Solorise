@@ -1,0 +1,102 @@
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  background-color: #f7f7f3;
+  background-image: radial-gradient(#d5d5cd 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.card {
+  width: min(980px, 100%);
+  overflow: hidden;
+  border: 1px solid #dbdbd3;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 24px 70px rgba(20, 21, 16, .1);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 26px;
+  border-bottom: 1px solid #e6e6df;
+}
+.header > a { display: inline-flex; }
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 11px;
+  border: 1px solid #d9d9d1;
+  border-radius: 999px;
+  color: #62635c;
+  font: 10px ui-monospace, SFMono-Regular, Consolas, monospace;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.status i { width: 7px; height: 7px; border-radius: 50%; background: #e0902b; }
+
+.copy { max-width: 760px; padding: 54px 54px 42px; }
+.eyebrow {
+  display: block;
+  color: #3d43ff;
+  font: 11px ui-monospace, SFMono-Regular, Consolas, monospace;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.copy h1 {
+  max-width: 720px;
+  margin-top: 12px;
+  font-size: clamp(38px, 6vw, 66px);
+  line-height: .98;
+  letter-spacing: -.055em;
+}
+.copy p { max-width: 680px; margin-top: 20px; color: #62635c; font-size: 16px; line-height: 1.6; }
+
+.pathGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 0 54px 54px; }
+.pathCard { min-width: 0; padding: 24px; border: 1px solid #deded7; border-radius: 14px; background: #fafaf7; }
+.pathCard > span { color: #3d43ff; font: 10px ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .08em; text-transform: uppercase; }
+.pathCard h2 { margin-top: 9px; font-size: 22px; letter-spacing: -.025em; }
+.pathCard > p { margin-top: 9px; color: #62635c; font-size: 13px; line-height: 1.55; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 15px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.primary { background: #3439ff; color: #fff; }
+.primary:hover { background: #292ee8; }
+.secondary { border: 1px solid #d5d5cd; background: #fff; }
+.secondary:hover { border-color: #abab9f; }
+.command { display: grid; gap: 9px; margin-top: 20px; }
+.command > code { overflow-x: auto; padding: 12px; border: 1px solid #deded7; border-radius: 8px; background: #fff; color: #24251f; font-size: 12px; }
+.command small { color: #797a72; font-size: 11px; line-height: 1.45; }
+.card code { padding: 2px 5px; border-radius: 4px; background: #efefe9; color: #24251f; }
+.pathCard ol { display: grid; gap: 13px; margin-top: 18px; }
+.pathCard li { display: flex; gap: 11px; align-items: flex-start; color: #4d4e47; font-size: 12px; line-height: 1.5; }
+.pathCard li b { display: grid; place-items: center; width: 24px; height: 24px; flex: 0 0 auto; border-radius: 50%; background: #e9e9ff; color: #3439db; font-size: 10px; }
+
+.footer { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 26px; border-top: 1px solid #e6e6df; color: #6b6c64; font-size: 11px; }
+.footer a { color: #24251f; font-weight: 700; }
+.footer a:hover { text-decoration: underline; }
+
+@media (max-width: 760px) {
+  .page { align-items: start; padding: 12px; }
+  .card { border-radius: 16px; }
+  .header { padding: 16px; }
+  .status { display: none; }
+  .copy { padding: 38px 22px 30px; }
+  .copy h1 { font-size: 42px; }
+  .pathGrid { grid-template-columns: 1fr; padding: 0 16px 30px; }
+  .footer { align-items: flex-start; flex-direction: column; padding: 16px 22px; }
+}
